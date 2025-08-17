@@ -38,10 +38,12 @@ source ./run.sh
 ### 🪟 Windows (PowerShell)
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
-. .\setup.ps1
+. .\run.ps1
 ```
 
 ### 🌍 Running the Server without script
+
+If the scripts provided before are not working, or you prefer doing it by hand, use the following steps to setup and run the project:
 
 Create a virtual environment (.nailavenv) if it doesn’t exist:
 ```
