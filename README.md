@@ -28,6 +28,23 @@ It allows you to ask questions via a simple chat interface, and the backend uses
 
 ## 🔧 Quick Setup & Running
 
+### API key setup
+There are two scripts in the project: **run.sh** and **run.ps1**, for Linux and Windows respectively. Open the disered one for your case in a code editor (we recommend using the Linux .sh). You will find the following commented lines:
+```
+# # Uncomment the code below if you do not have your
+# # API keys as environment variables in your system:
+
+# echo "Setting API key variables"
+# export HF_API_KEY="your_huggingface_key"
+# export GROQ_API_KEY="your_groq_key"
+```
+To run the server it is necessary to export your API keys for **Groq** and **Huggingface** as environment variables. For that, uncomment the code above and substitute your keys, for example:
+```
+echo "Setting API key variables"
+export HF_API_KEY="hf_abcdefghijklmnopq..."
+export GROQ_API_KEY="gsk_abcdefghijklmnopq..."
+```
+
 ### 🐧 Linux / macOS
 **Recommended.** Run the provided bash script:
 ```bash
