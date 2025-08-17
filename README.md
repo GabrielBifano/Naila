@@ -29,13 +29,14 @@ It allows you to ask questions via a simple chat interface, and the backend uses
 ## 🔧 Quick Setup & Running
 
 ### 🐧 Linux / macOS
-Run the provided bash script:
+**Recommended.** Run the provided bash script:
 ```bash
 chmod +x run.sh
 source ./run.sh
 ```
 
 ### 🪟 Windows (PowerShell)
+**Not recommended.** You may find version incompatibilities.
 ```powershell
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 . .\run.ps1
