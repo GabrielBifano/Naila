@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Bot</title>
+    <style>
+        body {
+            font-family: sans-serif;
+        }
+        #messages {
+            list-style: none;
+            padding: 0;
+        }
+        .msg {
+            margin: 5px 0;
+            padding: 5px 10px;
+            border-radius: 8px;
+            max-width: 60%;
+        }
+        .user {
+            background-color: #d1e7dd;
+            text-align: right;
+            margin-left: auto;
+        }
+        .server {
+            background-color: #f8d7da;
+            text-align: left;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>Chat Bot</h1>
+    <ul id="messages"></ul>
+    <form id="chat-form">
+        <input id="message-input" autocomplete="off" placeholder="Type a message..." />
+        <button>Send</button>
+    </form>
+
+    <!-- Load Socket.IO -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+        const socket = io();
+        const form = document.getElementById('chat-form');
+        const input = document.getElementById('message-input');
+        const messages = document.getElementById('messages');
+
+        // When the server sends a mirrored message
+        socket.on('message', (msg) => {
+            addMessage(msg, 'server');
+        });
+
+        // Send message to server on form submit
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (input.value) {
+                addMessage(input.value, 'user'); // Show user's own message
+                socket.send(input.value);        // Send to server
+                input.value = '';
+            }
+        });
+
+        // Function to add messages to the list
+        function addMessage(text, type) {
+            const li = document.createElement('li');
+            li.classList.add('msg', type);
+            li.textContent = `\t ${text}`;
+            messages.appendChild(li);
+        }
+    </script>
+</body>
+</html>
