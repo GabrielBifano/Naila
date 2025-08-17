@@ -23,11 +23,11 @@ class ChatHistory():
 def get_data():
   print("Loading scraped data...")
   file_loader = TextLoader("signa_scrape_20250813_170121.txt", encoding="utf-8")
-  web_loader = WebBaseLoader("https://www.signa.pt/")
+  # web_loader = WebBaseLoader("https://www.signa.pt/")
   
   file_docs = file_loader.load()
-  web_docs = web_loader.load()
-  return file_docs + web_docs
+  # web_docs = web_loader.load()
+  return file_docs # + web_docs
 
 def get_vector_storage(chunk_size=1000, chunk_overlap=200):
   docs = get_data()
@@ -53,7 +53,7 @@ def get_agent():
 
   return Agent(
     role="RAG Assistant",
-    goal="Answer based on company knowledge",
+    goal="Answer based on company knowledge without being verbose. Keep the length of the answer to one paragraph.",
     backstory="You know everything about SIGNA company and its services.",
     llm=llm,
   )
@@ -65,8 +65,8 @@ def ask_bot(message: str, chat_history: ChatHistory) -> str:
 
   task = Task(  
     agent = agent,
-    description = f"Using the following context: {context_text} + {chat_history.prompt()}\n\nAnswer: {message}",
-    expected_output="A clear, concise, and helpful answer based on the provided context."
+    description = f"Using the following context: {context_text}\n\nAnd the following chat conversation:{chat_history.prompt()}|\n\nAnswer: {message}",
+    expected_output="A clear, concise, non verbose and helpful answer based on the provided context."
   )
 
   crew = Crew(agents=[agent], tasks=[task])
