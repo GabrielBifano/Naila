@@ -28,7 +28,9 @@ It allows you to ask questions via a simple chat interface, and the backend uses
 
 ## 🔧 Quick Setup & Running
 
-### API key setup
+### API keys setup
+
+You will need two API keys for this project: **Groq** and **Huggingface** both free and easy to setup.
 There are two scripts in the project: **run.sh** and **run.ps1**, for Linux and Windows respectively. Open the disered one for your case in a code editor (we recommend using the Linux .sh). You will find the following commented lines:
 ```
 # # Uncomment the code below if you do not have your
