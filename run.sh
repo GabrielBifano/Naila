@@ -1,12 +1,14 @@
+set -e
+
 venv_folder=".nailavenv"
 
 if [ ! -d "$venv_folder" ]; then
   echo "Virtual environment doesn't exist, creating it..."
-  python3 -m venv "$venv_folder"
+  python3 -m venv $venv_folder
 fi
 
 echo "Initializing virtual environment..."
-source "./$venv_folder/bin/activate"
+source ./$venv_folder/bin/activate
 
 echo "Installing dependencies..."
 pip install -r requirements.txt
