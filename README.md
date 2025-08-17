@@ -26,7 +26,7 @@ It allows you to ask questions via a simple chat interface, and the backend uses
 
 ---
 
-## 🔧 Installation & Setup
+## 🔧 Quick Setup & Running
 
 ### 🐧 Linux / macOS
 Run the provided bash script:
