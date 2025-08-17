@@ -1,4 +1,4 @@
-# 🗨️ Simple Chatbot Flask API with RAG
+# 🗨️ Naila - Simple Chatbot Flask API with RAG
 
 This project is a **Flask-based chatbot API** that integrates **RAG (Retrieval-Augmented Generation)** with **CrewAI** and **Groq’s LLaMA-3.1-8B-Instant** model.  
 It allows you to ask questions via a simple chat interface, and the backend uses both a local knowledge base and a language model to generate answers.
